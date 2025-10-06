@@ -60,9 +60,9 @@ h5 {
 }
 
 .custom-list li::before {
-  content: "•";
-  color: #0b8ed9;
-  font-weight: bold;
+  content: ">";
+  color: #000000;
+  font-weight: no;
   position: absolute;
   left: 0;
 }
