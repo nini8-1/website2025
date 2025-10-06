@@ -1,0 +1,83 @@
+body {
+  background: #0b8ed9 url('../images/bg-pattern.png');
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* 頁首區 */
+.header-bar {
+  background: #0b8ed9;
+  color: #fff;
+}
+
+.header-bar h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-bar p {
+  font-size: 0.8rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: #0b73b6;
+  border-radius: 5px;
+}
+
+/* Hero Banner */
+#hero img {
+  border-bottom: 6px solid #00aeee;
+}
+
+/* 主內容 */
+main {
+  margin-top: -4px;
+}
+
+h5 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.custom-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.custom-list li {
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 15px;
+}
+
+.custom-list li::before {
+  content: "•";
+  color: #0b8ed9;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* 頁尾 */
+.footer-bar {
+  background: #0b73b6;
+  font-size: 0.85rem;
+}
+
+.footer-bar a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bar a:hover {
+  text-decoration: none;
+}
