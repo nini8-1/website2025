@@ -1,12 +1,11 @@
 body {
-  background: #0b8ed9 url('../images/bg-pattern.png');
+  background: linear-gradient(135deg, #1362c8 0%, #548ef4 100%);
   font-family: Arial, sans-serif;
-  color: #333;
+  color: #000000;
 }
 
 /* 頁首區 */
 .header-bar {
-  background: #0b8ed9;
   color: #fff;
 }
 
@@ -62,7 +61,7 @@ h5 {
 .custom-list li::before {
   content: ">";
   color: #000000;
-  font-weight: no;
+  font-weight: bold;
   position: absolute;
   left: 0;
 }
