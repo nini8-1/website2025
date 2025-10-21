@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>101st Screaming Eagles</title>
+  <style>
+    /* ---------- 全域設定 ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #ddd;
+      line-height: 1.6;
+      background-image: linear-gradient(#111, #000);
+    }
+
+    a {
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #d4af37;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Header 區 ---------- */
+    header.hero {
+      position: relative;
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      background: url('images/clouds-bg.jpg') center/cover no-repeat;
+      border-bottom: 3px solid #333;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo img {
+      width: 160px;
+      margin: 0 auto 1rem;
+    }
+
+    .logo h1 {
+      font-size: 2.2rem;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 1.2rem;
+      color: #d4af37;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      background: rgba(20,20,20,0.8);
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav li:hover {
+      background: rgba(90,70,20,0.8);
+    }
+
+    /* ---------- 主內容區 ---------- */
+    main.medals {
+      padding: 3rem 1rem;
+      background: radial-gradient(circle at top, #1a1a1a 0%, #000 100%);
+      border-top: 2px solid #333;
+      border-bottom: 2px solid #333;
+    }
+
+    .medals h2 {
+      text-align: center;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+
+    .medals p {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #999;
+    }
+
+    .medals-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .ribbons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+
+    .ribbons img {
+      width: 100%;
+      max-width: 90px;
+      border: 2px solid #555;
+      border-radius: 4px;
+      background-color: #111;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .ribbons img:hover {
+      transform: scale(1.1);
+      border-color: #d4af37;
+    }
+
+    .medal-info {
+      text-align: center;
+      background: rgba(15,15,15,0.8);
+      border: 2px solid #444;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #000 inset;
+    }
+
+    .medal-info img {
+      width: 120px;
+      margin: 0 auto 1rem;
+    }
+
+    .medal-info p strong {
+      color: #d4af37;
+    }
+
+    /* ---------- 音樂播放器 ---------- */
+    aside.music-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(20,20,20,0.9);
+      border: 1px solid #555;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 220px;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .music-box button {
+      width: 100%;
+      background: #333;
+      color: #d4af37;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+
+    .music-box ul {
+      list-style: none;
+      margin-bottom: 0.5rem;
+    }
+
+    .music-box li {
+      background: #111;
+      margin: 0.3rem 0;
+      padding: 0.3rem;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .music-box p {
+      font-size: 0.85rem;
+      color: #bbb;
+      text-align: center;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #0c0c0c;
+      border-top: 2px solid #333;
+    }
+
+    footer .logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    footer .logos img {
+      width: 80px;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    footer .logos img:hover {
+      opacity: 1;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* ---------- 響應式 ---------- */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .medals-content {
+        grid-template-columns: 1fr;
+      }
+
+      aside.music-box {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="hero">
+    <div class="hero-content container">
+      <div class="logo">
+        <img src="images/eagle.png" alt="Eagle Logo" />
+        <h1>101st <span>Screaming Eagles</span></h1>
+      </div>
+
+      <nav>
+        <ul class="nav-left">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Join Up</a></li>
+          <li><a href="#">Roster</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Clan Code</a></li>
+        </ul>
+        <ul class="nav-right">
+          <li><a href="#">Affiliates</a></li>
+          <li><a href="#">Medals</a></li>
+          <li><a href="#">Airborne Post</a></li>
+          <li><a href="#">Forums</a></li>
+          <li><a href="#">War Room</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="medals">
+    <div class="container">
+      <h2>Medals Archive</h2>
+      <p>Select a ribbon for info & preview.</p>
+
+      <div class="medals-content">
+        <div class="ribbons">
+          <img src="images/ribbon1.png" alt="Ribbon 1" />
+          <img src="images/ribbon2.png" alt="Ribbon 2" />
+          <img src="images/ribbon3.png" alt="Ribbon 3" />
+        </div>
+
+        <div class="medal-info">
+          <img src="images/medal.png" alt="Medal Preview" />
+          <p><strong>Name:</strong> Navy Achievement</p>
+          <p><strong>Description:</strong> Issued for winning a round outnumbered 3:1</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Aside -->
+  <aside class="music-box">
+    <button>Sound: On/Off</button>
+    <ul>
+      <li>Track 1</li>
+      <li>Track 2</li>
+    </ul>
+    <p>Now Playing: Disturbed - Down With The Sickness</p>
+  </aside>
+
+  <!-- Footer -->
+  <footer>
+    <div class="logos">
+      <img src="images/urgentfury.png" alt="Urgent Fury" />
+      <img src="images/playstation.png" alt="PlayStation 3" />
+      <img src="images/infinityward.png" alt="Infinity Ward" />
+    </div>
+    <p>© 101st Screaming Eagles Clan. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

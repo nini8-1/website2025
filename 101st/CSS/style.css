@@ -1,0 +1,10 @@
+.medals-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .medals-content {
+    grid-template-columns: 1fr; /* 手機改成上下排列 */
+  }
+}
