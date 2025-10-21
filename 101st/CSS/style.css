@@ -8,3 +8,11 @@
     grid-template-columns: 1fr; /* 手機改成上下排列 */
   }
 }
+.hero {
+  position: relative;
+  height: 100vh; /* 全螢幕高 */
+  background-image: url("images/eagle.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

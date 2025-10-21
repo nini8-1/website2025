@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="CSS/style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>101st Screaming Eagles</title>
@@ -159,7 +160,7 @@
     .medal-info {
       text-align: center;
       background: rgba(15,15,15,0.8);
-      border: 2px solid #444;
+      border: 2px solid #8f2323;
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 0 20px #000 inset;
@@ -273,12 +274,14 @@
 
 <body>
   <!-- Header -->
-  <header class="hero">
-    <div class="hero-content container">
-      <div class="logo">
-        <img src="images/eagle.png" alt="Eagle Logo" />
-        <h1>101st <span>Screaming Eagles</span></h1>
-      </div>
+  <header class="hero position-relative">
+  <img src="images/eagle.png" 
+       alt="Eagle Logo" 
+       class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" />
+  <div class="hero-content position-relative text-center text-white">
+    <h1>101st <span>Screaming Eagles</span></h1>
+  </div>
+</header>
 
       <nav>
         <ul class="nav-left">
