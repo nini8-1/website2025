@@ -16,3 +16,21 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.big-img {
+  width: 100%;    /* 撐滿整欄 */
+  height: auto;   /* 保持比例 */
+  object-fit: cover; /* 若搭配固定高度，可裁切鋪滿 */
+}
+.col-box {
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+  font-size: 1.5rem;
+  background-size: cover;      /* 撐滿區塊 */
+  background-position: center; /* 置中 */
+}
+.medals-cards .card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
