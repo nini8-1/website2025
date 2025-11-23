@@ -1,0 +1,182 @@
+/* 全域設定 */
+
+@font-face {
+  font-family: 'CosmikOrchestra';
+  src: url('./fonts/Cosmik Orchestra.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'KASTROO';  /* 你自訂的名字 */
+  src: url('./fonts/KASTROO.ttf') format('truetype');
+}
+
+/* NAVBAR 基本樣式 */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+  color: #d6ff5e;
+  font-family: 'KASTROO', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 連結 */
+.nav-links a {
+  margin-left: 36px;
+  text-decoration: none;
+  color: #d6ff5e;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* 漢堡選單按鈕（桌機隱藏）*/
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  color: #d6ff5e;
+  cursor: pointer;
+}
+
+/* 手機 RWD */
+@media (max-width: 768px) {
+  /* 顯示漢堡按鈕 */
+  .menu-btn {
+    display: block;
+  }
+
+  /* 隱藏原本的水平選單 */
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: rgba(0,0,0,0.85);
+    width: 200px;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    display: block;
+  }
+
+  /* 展開時顯示 */
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+body {
+  margin: 0;
+  color: #ffffff;
+  background: #000 url('images/grain.jpg');
+  opacity: 0.3;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Hero 區 */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 64px;
+  margin: 0;
+  letter-spacing: 2px;
+  font-family: 'CosmikOrchestra', sans-serif;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #ccc;font-family: 'Outfit', sans-serif;
+}
+
+/* Services 區 */
+.services {
+  padding: 80px 10%;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.service-box {
+  border: 1px solid #333;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  border-color: #f97316;
+}
+
+/* Projects 區 */
+.projects {
+  padding: 80px 10%;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.project-item {
+  height: 200px;
+  background: #222;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.project-item:hover {
+  transform: scale(1.05);
+  background: #444;
+}
+
+/* 手機 RWD */
+@media (max-width: 768px) {
+  .service-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}
