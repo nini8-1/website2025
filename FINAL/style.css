@@ -83,8 +83,7 @@
 body {
   margin: 0;
   color: #ffffff;
-  background: #000 url('images/grain.jpg');
-  opacity: 0.3;
+  background: #000000;
   font-family: 'Outfit', sans-serif;
 }
 
@@ -167,6 +166,15 @@ body {
 .project-item:hover {
   transform: scale(1.05);
   background: #444;
+}
+
+/* 讓影片在 project-item 內填滿 */
+.project-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; /* 跟外框一致 */
+  display: block;
 }
 
 /* 手機 RWD */
