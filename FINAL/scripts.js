@@ -1,13 +1,13 @@
-gsap.from(".hero-title span", {
-  y: 40,
-  opacity: 0,
-  stagger: 0.3,
-  duration: 1.2,
-  ease: "power3.out"
-});
 const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const fullscreenNav = document.getElementById("fullscreenNav");
+const closeBtn = document.getElementById("closeBtn");
 
+// 打開全螢幕選單
 menuBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+  fullscreenNav.classList.add("active");
+});
+
+// 關閉選單
+closeBtn.addEventListener("click", () => {
+  fullscreenNav.classList.remove("active");
 });

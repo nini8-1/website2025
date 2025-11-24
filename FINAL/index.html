@@ -4,68 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Brand Website</title>
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 </head>
+
+<body>
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <img src="./images/logo.png" class="logo-img" width="78.18" height="43.98" alt="EKROOZ Logo">
+   <img src="./images/logo.png" class="logo-img" width="78" height="44" alt="EKROOZ Logo">
 
-  <!-- 漢堡按鈕 -->
-  <div class="menu-btn" id="menuBtn">
-    ☰
-  </div>
+   <!-- 桌機版選單 #部份放網址 href屬性指向url -->
+   <nav class="nav-links">
+     <a href="#">Projects</a>
+     <a href="#">Services</a>
+     <a href="#">About</a>
+     <a href="#">Contact</a>
+     <a href="#">Contact</a>
+   </nav>
+  
+  <!-- 手機版漢堡按鈕 -->
+  <div class="menu-btn" id="menuBtn">☰</div>
+</header>
 
-  <!-- 導覽選單 -->
-  <nav class="nav-links" id="navLinks">
+<!-- 全螢幕選單 Overlay -->
+<div class="fullscreen-nav" id="fullscreenNav">
+  <div class="close-btn" id="closeBtn">×</div>
+
+  <nav class="fullscreen-links">
     <a href="#">Projects</a>
     <a href="#">Services</a>
     <a href="#">About</a>
     <a href="#">Contact</a>
   </nav>
-</header>
+</div>
 
+<!-- Hero Banner -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      <span data-aos="fade-right" data-aos-delay="0">REVEAL</span><br>
+      <span data-aos="fade-right" data-aos-delay="300">THE</span><br>
+      <span data-aos="fade-right" data-aos-delay="600">BRAND</span>
+    </h1>
+  </div>
+</section>
 
-<body>
-
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="hero-content">
-     <div data-aos="fade-right"></div>
-      <h1>
-        <span data-aos="fade-right" data-aos-delay="0">REVEAL</span><br>
-        <span data-aos="fade-right" data-aos-delay="300">THE</span><br>
-        <span data-aos="fade-right" data-aos-delay="600">BRAND</span>
-      </h1>
+<!-- Services -->
+<section class="services">
+  <h2>Our Services</h2>
+  <div class="service-grid">
+    <div class="service-box">
+      <h3>Brand Strategy</h3>
+      <p>Helping you define your purpose.</p>
     </div>
+    <div class="service-box">
+      <h3>Visual Identity</h3>
+      <p>Modern & minimal brand looks.</p>
     </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="service-box">
-        <h3>Brand Strategy</h3>
-        <p>Helping you define your purpose.</p>
-      </div>
-      <div class="service-box">
-        <h3>Visual Identity</h3>
-        <p>Modern & minimal brand looks.</p>
-      </div>
-      <div class="service-box">
-        <h3>Storytelling</h3>
-        <p>Crafting meaningful brand stories.</p>
-      </div>
+    <div class="service-box">
+      <h3>Storytelling</h3>
+      <p>Crafting meaningful brand stories.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects -->
-  <section class="projects">
+<!-- Projects -->
+<section class="projects">
   <h2>Featured Projects</h2>
   <div class="project-grid">
 
@@ -75,18 +83,19 @@
       </video>
     </div>
 
-      <div class="project-item"></div>
-      <div class="project-item"></div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 My Brand. All rights reserved.</p>
-  </footer>
+    <div class="project-item"></div>
+    <div class="project-item"></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 My Brand. All rights reserved.</p>
+</footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script> AOS.init();</script>
+<script>AOS.init();</script>
 <script src="scripts.js"></script>
+
 </body>
 </html>
