@@ -9,14 +9,24 @@
   src: url('./fonts/KASTROO.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'ChristmasFecsival';
+  src: url('./fonts/ChristmasFecsival.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Akira';
+  src: url('./fonts/Akira Expanded Demo.otf') format('truetype');
+}
 /* NAVBAR */
 * {
   box-sizing: border-box;
 }
 
+/* NAVBAR padding=blur位置 */
 .navbar {
   width: 100%;
-  padding: 25px;
+  padding: 15px 30px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,10 +38,12 @@
   z-index: 1000;
 }
 
+/* 選單文字距離 */
 .nav-links {
   display: flex;
   gap: 40px;
 }
+
 /* 桌機選單 */
 .nav-links a {
   color: rgb(214, 255, 63);
@@ -100,7 +112,7 @@
 body {
   margin: 0;
   background: black;
-  color: white;
+  color: rgb(214, 255, 63);
   font-family: 'Outfit', sans-serif;
 }
 
@@ -109,13 +121,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 20px;
 }
 
 .hero h1 {
-  font-size: 64px;
+  font-size: 48px;
   text-align: center;
-  font-family: 'CosmikOrchestra';
+  font-family: 'Akira', sans-serif;
 }
 
 /* SERVICES */
