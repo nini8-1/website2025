@@ -26,6 +26,7 @@
      <a href="about.html">About</a>
      <a href="contact.html">Contact</a>
    </nav>
+
    <!-- 手機版漢堡按鈕 -->
    <div class="menu-btn" id="menuBtn">☰</div>
 </header>
@@ -40,7 +41,6 @@
   </nav>
 </div>
 
-<main style="padding-top:120px; text-align:center;">
 
 
     <section class="about-images">
@@ -53,15 +53,19 @@
 
     <div class="image-container">
       <picture>
-        <source srcset="./images/mob3.svg" media="(max-width: 768px)">
-        <img src="./images/pc3.svg" alt="Things Ready for Commission" class="responsive-img">
-      </picture>
+       <source media="(min-width: 750px)"
+           srcset="./images/mob2.svg,
+                    ./images/mob2.svg" />
+        <source media="(min-width: 500px)"
+            srcset="./images/mob2.svg"/>
+    <img src="./images/letter01.png" alt="letter">
+</picture>
     </div>
 
     <div class="image-container">
       <picture>
         <source srcset="./images/mob4.svg" media="(max-width: 768px)">
-        <img src="./images/pc4.svg" alt="A Note from WEKROZ and Steve Jobs quote" class="responsive-img">
+        <img src="./images/book01.png" alt="A Note from WEKROZ and Steve Jobs quote" class="responsive-img">
       </picture>
     </div>
   </section>

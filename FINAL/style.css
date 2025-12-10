@@ -271,8 +271,43 @@ body {
 }
 
 
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.contact-page-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+ url("https://assets.codepen.io/16327/noise-e82662fe.png");
+.contact-page-logo-outer {
+  width: 66%;
+  height: 66%;
+  background: url("./images/pc5.svg") no-repeat center center;
+  background-size: contain;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+}
+
+.contact-pagesvg-logo {
+  display: block;
+  width: 66%;
+  max-height: 66%;
+}
+ 
+
+
+
 Source - https://stackoverflow.com/a
 Posted by Farhad Ziaee
 Retrieved 2025-12-10, License - CC BY-SA 3.0
 --
-
