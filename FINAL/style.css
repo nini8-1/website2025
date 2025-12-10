@@ -199,6 +199,7 @@ body {
   }
 }
 
+
 /* =======================
     ABOUT PAGE IMAGE GALLERY (修改後的樣式)
 ======================= */
@@ -221,3 +222,17 @@ body {
  background: white; /* 設置為白色背景 */
  color: #333; /* 設置為深色文字 */
 }
+/* =======================
+    FOOTER 頁尾樣式
+======================= */
+.footer-bar {
+  /* 確保頁尾文字水平置中 */
+  text-align: center;
+}
+
+Source - https://stackoverflow.com/a
+Posted by Farhad Ziaee
+Retrieved 2025-12-10, License - CC BY-SA 3.0
+--
+
+
