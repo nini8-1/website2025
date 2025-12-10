@@ -198,3 +198,26 @@ body {
     font-size: 40px;
   }
 }
+
+/* =======================
+    ABOUT PAGE IMAGE GALLERY (修改後的樣式)
+======================= */
+.about-images {
+ width: 100%; /* 確保容器佔滿整個父層寬度 */
+ display: flex;
+ flex-direction: column; /* 圖片垂直堆疊 */
+ align-items: center; /* 讓 Flex 項目（即 image-container）在水平方向上置中 */
+ gap: 0px; /* 圖片之間的間距 */
+ padding: 0px 0%; /* 上下內距 */
+}
+/* ... 後面的 .image-container 樣式保持不變 ... */
+
+/* =======================
+    ABOUT 頁面專屬白色主題覆蓋
+======================= */
+
+/* 1. 頁面背景和主要文字顏色 */
+.about-page {
+ background: white; /* 設置為白色背景 */
+ color: #333; /* 設置為深色文字 */
+}
