@@ -230,9 +230,49 @@ body {
   text-align: center;
 }
 
+/* =======================
+    SERVICES 頁面專屬主題樣式
+======================= */
+
+/* 1. Services 頁面的 body 樣式 */
+.page-services {
+ background-color: darkblue; /* services 頁面背景改為深藍色 */
+  /* 注意：這裡不能放其他元素的樣式，只能放 .page-services 自身的樣式 */
+}
+
+/* 2. 應用於 Services 頁面內的 flair 元素 */
+.page-services .flair {
+  position: fixed;
+  opacity: 0;
+  width: 50px;
+}
+
+/* 3. 應用於 Services 頁面內的 body 元素 (這是最關鍵的一步) */
+/*
+   注意：當你選擇 .page-services body 時，它會選擇 body 元素本身，
+   但如果 .page-services 已經在 body 上了，則應該使用 .page-services 本身。
+   這裡的樣式應該直接應用在 .page-services Class 上，以覆蓋全域 body 設定。
+*/
+.page-services {
+  /* 我們把 body 的屬性直接放在 .page-services 上 */
+  /* 因為你希望這個頁面是全螢幕且不可滾動，這將覆蓋全域 body 樣式 */
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* 4. 應用於 Services 頁面內的 h1 元素 */
+.page-services h1 {
+ font-size: 8vw;
+  color: white; /* 搭配深藍色背景，H1 文字改為白色 */
+}
+
+
 Source - https://stackoverflow.com/a
 Posted by Farhad Ziaee
 Retrieved 2025-12-10, License - CC BY-SA 3.0
 --
-
 
