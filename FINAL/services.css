@@ -1,0 +1,96 @@
+:root {
+  --scale-mult: 1.65; /* 全部一起放大 165% */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Outfit', sans-serif;
+}
+
+#stage {
+  width: 100%;
+  height: 100vh;
+  background: #071476;
+  overflow: hidden; /* 保留 logo 視差 */
+  position: relative;
+}
+
+/* wrapper：用 vw/vh 自動縮放 */
+.logo-wrapper {
+  position: absolute;
+  width: min(55vw, 55vh);
+  height: min(55vw, 55vh);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* 避免擋住滾動 */
+}
+
+/* SVG 共用設定 */
+.svg-img {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  transform-origin: center;
+  transform: scale(var(--scale-mult));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 深度順序 */
+.svg-base { z-index: 1; }  
+.svg-ee   { z-index: 2; }
+.svg-bb   { z-index: 3; }
+
+/* 小螢幕再縮小一點 scale */
+@media (max-width: 600px) {
+  :root { --scale-mult: 1; }
+  .logo-wrapper { width: min(100vw, 100vh); height: min(100vw, 100vh); }
+}
+
+@media (max-width: 400px) {
+  :root { --scale-mult: 1; }
+  .logo-wrapper { width: min(80vw, 80vh); height: min(80vw, 80vh); }
+}
+
+
+#stage {
+  width: 100%;
+  min-height: 100vh;
+  background: #071476;
+  overflow-x: hidden; /* 只禁止水平滾動 */
+  overflow-y: auto;   /* 開啟垂直滾動 */
+  position: relative;
+  padding-top: 100px; /* 如果有 navbar */
+}
+
+.logo-wrapper {
+  position: fixed; /* 固定在畫面中央 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(55vw, 55vh);
+  height: min(55vw, 55vh);
+  pointer-events: none; /* 不擋滑動 */
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  padding: 2rem;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
