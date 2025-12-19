@@ -1,0 +1,26 @@
+.flair {
+  position: fixed;
+  opacity: 0;
+  width: 200px;  /* 從 50px 改成 80px，這會讓所有圖片變大 */
+  height: auto; /* 確保比例不會變形 */
+  object-fit: cover;
+  pointer-events: none; /* 建議加上，防止圖片擋住滑鼠點擊 */
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+h1 {
+  font-size: 8vw
+}
+
+body {
+  background: #ffffff;
+}
