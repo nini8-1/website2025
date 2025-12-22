@@ -1,3 +1,101 @@
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+}
+
+/* NAVBAR */
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  padding: 15px 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(247, 247, 247, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: rgb(133, 159, 240);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.menu-btn {
+  display: none; /* ✅ 預設桌機不顯示 */
+  font-size: 25px;
+  color: rgb(133, 159, 240);
+  cursor: pointer;
+}
+
+/* 手機響應式 */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* ✅ 手機隱藏桌機選單 */
+  }
+
+  .menu-btn {
+    display: block; /* ✅ 手機顯示漢堡 */
+  }
+}
+
+
+/* =======================
+   全螢幕選單（Overlay）
+======================= */
+.fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+}
+
+.fullscreen-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.fullscreen-links a {
+  color: rgb(133, 159, 240);
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: rgb(133, 159, 240);
+  cursor: pointer;
+}
+
+
 .flair {
   position: fixed;
   opacity: 0;
@@ -8,19 +106,40 @@
 }
 
 body {
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #f7f7f7;
+  margin: 0;
   min-height: 100vh;
 }
-
 
 h1 {
   font-size: 8vw
 }
 
-body {
-  background: #ffffff;
+.center-text {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;   /* 多段文字上下排 */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  pointer-events: none;     /* 不干擾滑鼠特效 */
 }
+
+
+.center-text p {
+  font-family: 'Outfit', 'NotoSansJP', sans-serif;
+  font-weight: 400;
+  color: rgb(37 56 204);
+  text-align: center;
+
+  /* 穩定、好看的響應式字級1.6rem, 3.5vw, 3.5rem); */
+  font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+

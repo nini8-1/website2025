@@ -18,7 +18,9 @@
   font-family: 'Akira';
   src: url('./fonts/Akira Expanded Demo.otf') format('truetype');
 }
+
 /* NAVBAR */
+
 * {
   box-sizing: border-box;
 }

@@ -1,44 +1,67 @@
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const fullscreenNav = document.getElementById("fullscreenNav");
+
+let menuOpen = false;
+
+menuBtn.addEventListener("click", () => {
+  fullscreenNav.classList.add("active");
+  document.body.style.overflow = "hidden";
+  menuOpen = true;
+});
+
+closeBtn.addEventListener("click", () => {
+  fullscreenNav.classList.remove("active");
+  document.body.style.overflow = "";
+  menuOpen = false;
+});
+
 function playAnimation(shape) {
- // the timeline
   let tl = gsap.timeline();
-// 先確保它是可見的，然後開始動畫
-  tl.to(shape, {
-    opacity: 1,
-    scale: 1,
-    duration: 0.4,
-    ease: "back.out(1.7)" // 稍微彈出的效果
-  })
-  .to(shape, {
-    opacity: 0,     // 自動消失
-    scale: 0.2,     // 縮到很小
+
+  tl.fromTo(
+    shape,
+    { opacity: 0, scale: 0.2 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.4,
+      ease: "back.out(1.7)"
+    }
+  ).to(shape, {
+    opacity: 0,
+    scale: 0.2,
     duration: 0.8,
     ease: "power2.in",
-    delay: 0.1      // 稍微停頓一下就消失
+    delay: 0.1
   });
 }
-/* --------------------------------
 
+
+/* --------------------------------
+  
 The other stuff...
 
 ------------------------------------*/
 let flair = gsap.utils.toArray(".flair");
-let gap = 100; // if you're nosy though, this number spaces the 'lil shapes out
+let gap = 100;
 let index = 0;
 let wrapper = gsap.utils.wrap(0, flair.length);
-gsap.defaults({duration: 1})
 
 let mousePos = { x: 0, y: 0 };
-let lastMousePos = mousePos;
-let cachedMousePos = mousePos;
+let lastMousePos = { x: 0, y: 0 };
+let cachedMousePos = { x: 0, y: 0 };
 
 window.addEventListener("mousemove", (e) => {
-  mousePos = {
-    x: e.x,
-    y: e.y
-  };
+  if (menuOpen) return; // 🔴 fullscreen 開啟時不跑
+  mousePos.x = e.clientX;
+  mousePos.y = e.clientY;
 });
 
-gsap.ticker.add(ImageTrail);
+gsap.ticker.add(() => {
+  if (menuOpen) return;
+  ImageTrail();
+});
 
 function ImageTrail() {
   let travelDistance = Math.hypot(
@@ -46,23 +69,24 @@ function ImageTrail() {
     lastMousePos.y - mousePos.y
   );
 
-  // keep the previous mouse position for animation
   cachedMousePos.x = gsap.utils.interpolate(
-    cachedMousePos.x || mousePos.x,
+    cachedMousePos.x,
     mousePos.x,
     0.1
   );
   cachedMousePos.y = gsap.utils.interpolate(
-    cachedMousePos.y || mousePos.y,
+    cachedMousePos.y,
     mousePos.y,
     0.1
   );
 
   if (travelDistance > gap) {
     animateImage();
-    lastMousePos = mousePos;
+    lastMousePos.x = mousePos.x;
+    lastMousePos.y = mousePos.y;
   }
 }
+
 
 function animateImage() {
   let wrappedIndex = wrapper(index);

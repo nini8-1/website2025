@@ -1,0 +1,147 @@
+/* 基礎設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.social-page {
+  background-color: #ffffff;
+  /* 英文優先用 Outfit，日文/中文用 Noto Sans JP */
+  font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.contact-wrap {
+  padding: 150px 20px 100px; /* 增加頂部間距，營造空間感 */
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 狀態標籤 */
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  border: 1px solid #eee;
+  border-radius: 100px;
+  margin-bottom: 40px;
+  color: #666;
+  font-weight: 400;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #2ecc71; 
+  border-radius: 50%;
+  margin-right: 12px;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+  /* 呼吸小動畫 */
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 標題 */
+.contact-title {
+  font-size: clamp(32px, 7vw, 72px); /* 隨螢幕大小縮放文字 */
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 100px;
+  letter-spacing: -1.5px;
+  color: #1a1a1a;
+}
+
+/* Email 區塊 */
+.label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #aaa;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.email-link {
+  font-size: clamp(24px, 5vw, 42px);
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* 滑過時的優雅底線動畫 */
+.email-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -8px;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.email-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.copy-hint {
+  font-size: 12px;
+  color: #ccc;
+  margin-top: 25px;
+}
+
+/* 底部輔助欄位 */
+.contact-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 120px;
+  padding-top: 60px;
+  border-top: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.info-text, .social-links a {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  margin-top: 12px;
+  display: block;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 25px;
+  transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+  opacity: 0.5;
+}
+
+/* 手機版優化 */
+@media (max-width: 768px) {
+  .contact-footer {
+    flex-direction: column;
+    gap: 50px;
+    text-align: center;
+  }
+  .social-links a {
+    margin: 0 12px;
+  }
+}
