@@ -28,7 +28,7 @@
 }
 
 .nav-links a {
-  color: rgb(133, 159, 240);
+  color: rgb(74, 87, 231);
   text-decoration: none;
   font-size: 12px;
 }
@@ -36,7 +36,7 @@
 .menu-btn {
   display: none; /* ✅ 預設桌機不顯示 */
   font-size: 25px;
-  color: rgb(133, 159, 240);
+  color: rgb(74, 87, 231);
   cursor: pointer;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .fullscreen-links a {
-  color: rgb(133, 159, 240);
+  color: rgb(74, 87, 231);
   font-size: 40px;
   text-decoration: none;
 }
@@ -91,7 +91,7 @@
   top: 20px;
   right: 40px;
   font-size: 40px;
-  color: rgb(133, 159, 240);
+  color: rgb(74, 87, 231);
   cursor: pointer;
 }
 
@@ -115,31 +115,96 @@ h1 {
   font-size: 8vw
 }
 
+@keyframes sophisticatedFadeOut {
+  0% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  92% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(0.95); /* 輕微縮小，顯得更優雅 */
+    visibility: hidden;     /* 徹底隱藏，不干擾點擊 */
+  }
+}
+
+/* --- 基礎排版保持不變 --- */
 .center-text {
   position: fixed;
   inset: 0;
   display: flex;
-  flex-direction: column;   /* 多段文字上下排 */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  pointer-events: none;     /* 不干擾滑鼠特效 */
+  pointer-events: none;
 }
 
-
-.center-text p {
+.center-text p, .center-text a {
   font-family: 'Outfit', 'NotoSansJP', sans-serif;
-  font-weight: 400;
-  color: rgb(37 56 204);
-  text-align: center;
-
-  /* 穩定、好看的響應式字級1.6rem, 3.5vw, 3.5rem); */
+  color: rgb(58, 77, 220);
   font-size: clamp(1.2rem, 2.5vw, 2.5rem);
-
   letter-spacing: 0.04em;
   line-height: 1.2;
   margin: 0;
+  text-decoration: none;
 }
 
+/* --- 第一階段：符號消失動畫 --- */
+.symbol-sequence {
+  animation: sophisticatedFadeOut 1s forwards;
+  animation-delay: 7s; /* 撐到第 7 秒 */
+}
 
+@keyframes sophisticatedFadeOut {
+  to { 
+    opacity: 0; 
+    transform: scale(1.08) translateY(-10px); /* 輕微放大並上飄，像消散煙霧 */
+    filter: blur(10px); 
+    visibility: hidden;
+  }
+}
+
+/* --- 第二階段：方案 B 階梯式浮現 --- */
+.info-sequence .step-1,
+.info-sequence .step-2,
+.info-sequence .step-3 {
+  opacity: 0;
+  pointer-events: none;
+  animation: elegantFadeIn 1.5s forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 階梯時間軸保持不變 */
+.info-sequence .step-1 { animation-delay: 8s; }
+.info-sequence .step-2 { animation-delay: 8s; }
+.info-sequence .step-3 { animation-delay: 9s; /* 最後才浮現 Email */
+  margin-top: 40px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+}
+
+/* 浮現動畫：結合 位移 + 模糊 + 縮放 */
+@keyframes elegantFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Email 滑過的小特效 */
+.email-link {
+  transition: opacity 0.3s ease;
+}
+.email-link:hover {
+  opacity: 0.6;
+}

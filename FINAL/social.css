@@ -1,20 +1,177 @@
-/* 基礎設定 */
-* {
+/* ===============================
+   FONT
+================================ */
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+}
+
+/* ===============================
+   RESET / BASE
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body.social-page {
-  background-color: #ffffff;
-  /* 英文優先用 Outfit，日文/中文用 Noto Sans JP */
+html,
+body {
+  width: 100%;
+}
+
+/* ===============================
+   BODY
+================================ */
+body {
   font-family: 'Outfit', 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: #fff;
 }
 
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+  width: 100%;
+  padding: 15px 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: rgba(247, 247, 247, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  font-size: 12px;
+  text-decoration: none;
+  color: rgb(74, 87, 231);
+}
+
+.menu-btn {
+  display: none;
+  font-size: 25px;
+  color: rgb(74, 87, 231);
+  cursor: pointer;
+}
+
+/* Navbar mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* ===============================
+   FULLSCREEN MENU
+================================ */
+.fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  background: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+.fullscreen-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.fullscreen-links a {
+  font-size: 40px;
+  color: rgb(214, 255, 63);
+  text-decoration: none;
+  font-family: 'KASTROO';
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: rgb(214, 255, 63);
+  cursor: pointer;
+}
+
+/* ===============================
+   CONTACT MAIN VISUAL (修正後的佈局)
+================================ */
+.contact-page-main {
+  display: flex;
+  width: 100%;
+  align-items: flex-start; /* 讓左側不會被拉伸 */
+}
+
+/* 左側：完全固定 */
+.contact-page-logo-outer {
+  position: relative; /* 讓 ScrollTrigger 處理固定 */
+  width: 40%;
+  height: 80vh;
+  margin-top: 10vh; /* 讓它初始位置在中間一點 */
+  background: url(images/contact/002.svg) no-repeat center;
+  background-size: contain;
+  border-radius: 3rem;
+  z-index: 1;
+}
+
+/* 右側：捲動區塊 */
 .contact-wrap {
-  padding: 150px 20px 100px; /* 增加頂部間距，營造空間感 */
-  text-align: center;
+  width: 50%;
+  margin-left: 10%; /* 加上間距 */
+  padding: 150px 0;
+  z-index: 2;
+}
+
+.contact-wrap .container {
+  max-width: 600px;
+  margin: 0;           /* 內容靠左 */
+}
+
+/* ===============================
+   CONTACT CONTENT
+================================ */
+.contact-wrap {
+  width: 55%;        /* 右側佔 55% */
+  padding: 100px 5% 100px; /* 增加左右 padding 確保內容不貼邊 */
+  text-align: left;  /* 改為靠左對齊通常在這種佈局更好看 */
+  min-height: 150vh; /* 確保內容足夠長可以捲動 */
+}
+
+/* 修正容器寬度 */
+.contact-wrap .container {
+  max-width: 600px;  /* 縮小容器寬度以適應右半部 */
+  margin: 0;         /* 靠左對齊 */
 }
 
 .container {
@@ -22,28 +179,24 @@ body.social-page {
   margin: 0 auto;
 }
 
-/* 狀態標籤 */
+/* status tag */
 .status-tag {
   display: inline-flex;
   align-items: center;
   font-size: 13px;
-  letter-spacing: 1px;
   padding: 8px 20px;
   border: 1px solid #eee;
   border-radius: 100px;
   margin-bottom: 40px;
   color: #666;
-  font-weight: 400;
 }
 
 .dot {
   width: 6px;
   height: 6px;
-  background-color: #2ecc71; 
+  background-color: #2ecc71;
   border-radius: 50%;
   margin-right: 12px;
-  box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
-  /* 呼吸小動畫 */
   animation: pulse 2s infinite;
 }
 
@@ -53,9 +206,9 @@ body.social-page {
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* 標題 */
+/* title */
 .contact-title {
-  font-size: clamp(32px, 7vw, 72px); /* 隨螢幕大小縮放文字 */
+  font-size: clamp(32px, 7vw, 72px);
   font-weight: 300;
   line-height: 1.1;
   margin-bottom: 100px;
@@ -63,33 +216,29 @@ body.social-page {
   color: #1a1a1a;
 }
 
-/* Email 區塊 */
+/* email */
 .label {
   font-size: 11px;
   letter-spacing: 2px;
   color: #aaa;
   margin-bottom: 20px;
-  text-transform: uppercase;
 }
 
 .email-link {
   font-size: clamp(24px, 5vw, 42px);
   color: #000;
   text-decoration: none;
-  font-weight: 400;
   position: relative;
-  transition: color 0.3s ease;
 }
 
-/* 滑過時的優雅底線動畫 */
 .email-link::after {
   content: '';
   position: absolute;
+  left: 0;
+  bottom: -8px;
   width: 100%;
   height: 1px;
-  bottom: -8px;
-  left: 0;
-  background-color: #000;
+  background: #000;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
@@ -106,42 +255,63 @@ body.social-page {
   margin-top: 25px;
 }
 
-/* 底部輔助欄位 */
+/* footer */
 .contact-footer {
-  display: flex;
-  justify-content: space-between;
   margin-top: 120px;
   padding-top: 60px;
   border-top: 1px solid #f0f0f0;
+
+  display: flex;
+  justify-content: space-between;
   text-align: left;
 }
 
-.info-text, .social-links a {
+.info-text,
+.social-links a {
   font-size: 16px;
   color: #333;
   text-decoration: none;
-  margin-top: 12px;
   display: block;
+  margin-top: 12px;
 }
 
 .social-links a {
-  display: inline-block;
   margin-right: 25px;
-  transition: opacity 0.3s;
 }
 
 .social-links a:hover {
   opacity: 0.5;
 }
 
-/* 手機版優化 */
-@media (max-width: 768px) {
-  .contact-footer {
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+  .contact-page-main {
     flex-direction: column;
-    gap: 50px;
+  }
+  .contact-page-logo-outer {
+    position: relative; /* 手機版取消固定 */
+    width: 90%;
+    height: 300px;
+    margin: 20px auto;
+    left: 0;
+    top: 0;
+  }
+  .contact-wrap {
+    margin-left: 0;
+    width: 100%;
+    padding: 60px 20px;
     text-align: center;
   }
-  .social-links a {
-    margin: 0 12px;
+  .contact-wrap .container {
+    margin: 0 auto;
   }
+}
+  
+
+/* 修正原本 footer 在左右佈局下的寬度 */
+.contact-footer {
+  flex-wrap: wrap; 
+  gap: 30px;
 }

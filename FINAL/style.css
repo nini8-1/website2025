@@ -275,36 +275,6 @@ body {
 
 
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-.contact-page-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-.contact-page-logo-outer {
-  width: 66%;
-  height: 66%;
-  background: url("./images/pc5.svg") no-repeat center center;
-  background-size: contain;
-  border-radius: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  
-}
-
-.contact-pagesvg-logo {
-  display: block;
-  width: 66%;
-  max-height: 66%;
-}
- 
 
 
 

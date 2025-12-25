@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+}
+
+/* NAVBAR */
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  padding: 15px 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(247, 247, 247, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: rgb(74, 87, 231);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.menu-btn {
+  display: none; /* ✅ 預設桌機不顯示 */
+  font-size: 25px;
+  color: rgb(74, 87, 231);
+  cursor: pointer;
+}
+
+/* 手機響應式 */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* ✅ 手機隱藏桌機選單 */
+  }
+
+  .menu-btn {
+    display: block; /* ✅ 手機顯示漢堡 */
+  }
+}
+
+
+/* =======================
+   全螢幕選單（Overlay）
+======================= */
+.fullscreen-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+.fullscreen-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+/* 手機文字 decoration底線 */
+.fullscreen-links a {
+  color: rgb(214, 255, 63);
+  font-size: 40px;
+  text-decoration: none;
+  font-family: 'KASTROO';
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: rgb(214, 255, 63);
+  cursor: pointer;
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.contact-page-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.contact-page-logo-outer {
+  width: 66%;
+  height: 66%;
+  background: url(images/contact/002.svg) no-repeat center center;
+  background-size: contain;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+}
+
+.contact-pagesvg-logo {
+  display: block;
+  width: 66%;
+  max-height: 66%;
+}
+ 
+
+

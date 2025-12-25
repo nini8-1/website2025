@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>GSAP Snap Scroll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 點點導覽 -->
+  <nav class="dot-nav">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </nav>
+
+  <!-- Scenes -->
+  <section class="scene scene-1">
+    <h1 class="title">PONPON</h1>
+    <p class="desc">A breathing page</p>
+  </section>
+
+  <section class="scene scene-2">
+    <div class="box"></div>
+    <p class="desc">Scroll to feel motion</p>
+  </section>
+
+  <section class="scene scene-3">
+    <h2 class="title">About</h2>
+  </section>
+
+  <section class="scene scene-4">
+    <h2 class="title">Team</h2>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
