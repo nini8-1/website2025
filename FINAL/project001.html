@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project001.css" />
+
+</head>
+
+<body>
+
+<div class="gallery">
+	<ul class="cards">
+		<li class="card card-01"></li>
+		<li class="card card-02"></li>
+		<li class="card card-03"></li>
+		<li class="card card-04"></li>
+		<li class="card card-05"></li>
+		<li class="card card-06"></li>
+		<li class="card card-07"></li>
+        <li class="card card-01"></li>
+		<li class="card card-02"></li>
+		<li class="card card-03"></li>
+		<li class="card card-04"></li>
+		<li class="card card-05"></li>
+		<li class="card card-06"></li>
+		<li class="card card-07"></li>
+	</ul>
+	<div class="actions">
+		<button class="prev">Prev</button>
+		<button class="next">Next</button>
+	</div>
+</div>
+<div class="drag-proxy"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+<script src="project001.js"></script>
+<script>
+  // 1. 註冊外掛 (這是你之前漏掉的關鍵)
+  gsap.registerPlugin(ScrollTrigger, Draggable);
+  ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
+</script>
+
+</body>
+</html>
