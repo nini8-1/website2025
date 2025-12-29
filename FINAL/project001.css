@@ -1,13 +1,137 @@
+/* =======================
+   Global Font Setting
+======================= */
+
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --font-main: 'Outfit', 'NotoSansJP', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+}
+
+html, body {
+  font-family: var(--font-main);
+}
+
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'KASTROO';
+  src: url('./fonts/KASTROO.ttf') format('truetype');
+}
+/* NAVBAR */
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  padding: 15px 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(247, 247, 247, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: rgb(74, 87, 231);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.menu-btn {
+  display: none; /* ✅ 預設桌機不顯示 */
+  font-size: 25px;
+  color: rgb(74, 87, 231);
+  cursor: pointer;
+}
+
+/* 手機響應式 */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* ✅ 手機隱藏桌機選單 */
+  }
+
+  .menu-btn {
+    display: block; /* ✅ 手機顯示漢堡 */
+  }
+}
+
+
+/* =======================
+   全螢幕選單（Overlay）
+======================= */
+.fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+}
+
+.fullscreen-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.fullscreen-links a {
+  color: rgb(74, 87, 231);
+  font-size: 40px;
+  text-decoration: none;
+  font-family: 'KASTROO';
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: rgb(74, 87, 231);
+  cursor: pointer;
+}
+
+
+/* 設定所有元素的盒模型，確保 padding 和 border 不會撐開寬度 */
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: #ffffff;
+  background: #f7f7f7;
   min-height: 100vh;
   margin: 0;
 }
 
+/* 畫廊容器：填滿整個螢幕並固定位置，隱藏超出範圍的內容 */
 .gallery {
   position: absolute;
   width: 100%;
@@ -15,71 +139,132 @@ body {
   overflow: hidden;
 }
 
+/* 移除清單預設樣式 */
 .cards {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* ✅ 核心卡片設定（只留這一組） */
+/* 核心卡片設定 */
 .cards li.card {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; /* 垂直置中 */
+  left: 50%; /* 水平置中 */
 
-  /* 響應式尺寸 */
-  width: clamp(180px, 22vw, 260px);
-  height: clamp(260px, 32vw, 360px);
+  /* 響應式尺寸：使用 clamp 確保寬高隨螢幕縮放，但有最小值與最大值限制 */
+  /* clamp(最小值, 偏好值, 最大值) */
+  width: clamp(220px, 22vw, 340px); 
+  height: clamp(300px, 32vw, 440px);
 
+  /* 背景圖設定：置中且不重複，並確保圖片完整顯示 */
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
-  border-radius: 16px;
+  border-radius: 3px; /* 圓角設定 */
 }
 
 
-/* 操作按鈕 */
+/* 操作按鈕（Next/Prev）的容器 */
 .actions {
   position: absolute;
   bottom: 25px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* 完美的水平置中 */
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; /* 按鈕之間的間距 */
+}
+/* 核心按鈕風格 */
+.actions button {
+  /* 膠囊形狀與尺寸 */
+  padding: 12px 40px;
+  border-radius: 50px; /* 高度的一半以上即可呈現膠囊狀 */
 }
 
+/* 操作按鈕容器 */
+.actions {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 100;
+}
+
+/* 黑色邊框風格按鈕 */
+.actions button {
+  padding: 6px 20px;
+  border-radius: 50px;
+  
+  /* 顏色設定 */
+  background-color: #f7f7f7; /* 白色背景 */
+  color: #000000;           /* 黑色文字 */
+  border: 2px solid #000000; /* 黑色實體邊框 */
+  
+  /* 文字樣式 */
+  font-size: 0.7rem;
+  font-weight: 600;         /* 保持極粗體 */
+  text-transform: uppercase; /* 文字大寫更有力 */
+  cursor: pointer;
+  
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+/* 滑鼠懸停效果：反白 */
+.actions button:hover {
+  background-color: #000000; /* 背景變黑色 */
+  color: #f7f7f7;           /* 文字變白色 */
+}
+
+/* 點擊時縮小 */
+.actions button:active {
+  transform: scale(0.92);
+}
+/* 連結樣式 */
+a {
+  color: #88ce02;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 拖拽代理元素：隱藏起來，僅作為 Draggable 外掛捕捉滑鼠/手指移動的媒介 */
 .drag-proxy {
   visibility: hidden;
   position: absolute;
 }
 
-/*"/new02/195px-GoblimonDMO.jpg"*/
+/* 各別卡片的背景圖片路徑設定 */
 .card-01 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-03.png");
+  background-image: url("./images/mouselogo/homepage/jinji_post.jpg");
 }
 
 .card-02 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-03.png");
+  background-image: url("./images/mouselogo/homepage/red_post.jpg");
 }
 
 .card-03 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-03.png");
+  background-image: url("./images/mouselogo/homepage/newdrug_post.jpg");
 }
 
 .card-04 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-04.png");
+  background-image: url("./images/mouselogo/homepage/mirro_nbg.png");
 }
 
 .card-05 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-05.png");
+  background-image: url("./images/mouselogo/homepage/computer_post.png");
 }
 
 .card-06 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-06.png");
+  background-image: url("./images/mouselogo/homepage/cat_post.png");
 }
 
 .card-07 {
-  background-image: url("https://assets.codepen.io/16327/portrait-number-07.png");
+  background-image: url("./images/book01.png");
 }
-
