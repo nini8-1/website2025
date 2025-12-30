@@ -70,5 +70,25 @@
   ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
 </script>
 
+</main>
+
+<!-- Project Preview Modal 未使用-->
+<div class="project-modal" id="projectModal">
+  <div class="modal-content">
+    <div class="modal-close" id="modalClose">×</div>
+
+    <div class="modal-left">
+      <img id="modalImage" src="" alt="Project Preview">
+    </div>
+
+    <div class="modal-right">
+      <h2 id="modalTitle">Project Title</h2>
+      <p id="modalDesc">
+        這裡放作品說明文字，可以是設計概念、年份、使用技術等等。
+      </p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
