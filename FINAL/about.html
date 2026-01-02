@@ -1,65 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人網站 - 3D 識別證展示</title>
-    <style>
-        /* 基本頁面樣式 */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* 網頁背景色 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>3D ID Card Test</title>
+<link rel="stylesheet" href="about.css" />
 
-        .container {
-            max-width: 1200px;
-            width: 90%;
-            margin-top: 50px;
-            text-align: center;
-        }
+/* ===== 基本重置 ===== */
 
-        /* 3D 識別證的容器 */
-        .lanyard-section {
-            width: 100%;
-            height: 600px; /* 設定高度 */
-            background-color: #ffffff; /* 確保背景是白色 */
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgb(255, 255, 255);
-            overflow: hidden;
-            margin-bottom: 50px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-    </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>我的 3D 作品展示</h1>
-        <p>這是一個使用 React Three Fiber 製作的動態掛繩識別證。</p>
+<!-- 導覽列 -->
+<header class="navbar">
+  <div>EKROOZ</div>
+  <nav class="nav-links">
+   <a href="project001.html">Projects</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+     <a href="contact.html">Contact</a>
+  </nav>
+  <div class="menu-btn">☰</div>
+</header>
 
-        <div class="lanyard-section">
-            <iframe 
-                src="../dist/index.html" 
-                title="3D Lanyard Card"
-                loading="lazy"
-            ></iframe>
-        </div>
+<!-- 3D 背景 -->
+<section class="lanyard-background">
+  <iframe
+    src="../dist/index.html"
+    allow="pointer-lock; fullscreen"
+  ></iframe>
+</section>
 
-        <footer>
-            <p>&copy; 2025 我的網頁專案</p>
-        </footer>
+<!-- 文字疊加 -->
+<main class="content-overlay">
+  <div class="center-row">
+    <div class="side-content align-left">
+      <h2>DESIGN</h2>
+      <p>透過 React Three Fiber 打造的沈浸式識別系統，探索動態交互的可能。</p>
     </div>
+
+    <div></div>
+
+    <div class="side-content align-right">
+      <h2>MOTION</h2>
+      <p>融合技術與美學，為您的數位品牌提供獨一無二的視覺記憶點。</p>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div>EST. 2026 / TAIWAN</div>
+    <div class="text-center">© 2026 EKROOZ</div>
+    <div class="align-right">DRAG TO EXPLORE</div>
+  </div>
+</main>
 
 </body>
 </html>
