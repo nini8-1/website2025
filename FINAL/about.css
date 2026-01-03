@@ -3,6 +3,17 @@
   font-family: 'NotoSansJP';
   src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'KASTROO';
+  src: url('./fonts/KASTROO.ttf') format('truetype');
+}
+/* 預設樣式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', 'NotoSansJP', sans-serif; /* 預設使用您的字體 */
+}
 
 * {
   box-sizing: border-box;
@@ -30,7 +41,7 @@ html, body {
 .delay-2 { animation-delay: 0.5s; opacity: 0; }
 .delay-3 { animation-delay: 0.8s; opacity: 0; }
 
-/* ===== 導覽列 (依要求版型修正) ===== */
+/* ===== 導覽列 ===== */
 .navbar {
   width: 100%;
   padding: 15px 30px 10px;
@@ -57,6 +68,7 @@ html, body {
   text-decoration: none;
   font-size: 12px; /* 依要求設為 12px */
   transition: 0.3s;
+  font-family: 'Outfit', sans-serif;
 }
 
 .nav-links a:hover {
@@ -70,7 +82,7 @@ html, body {
   cursor: pointer;
 }
 
-/* ===== 全螢幕選單 (依要求版型修正) ===== */
+/* ===== 全螢幕選單===== */
 .fullscreen-nav {
   position: fixed;
   inset: 0;
@@ -101,6 +113,7 @@ html, body {
   color: #87a1f0;
   font-size: 40px;
   text-decoration: none;
+  font-family: 'KASTROO';
 }
 
 .close-btn {
@@ -178,7 +191,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   color: #87a1f0;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 1px;
 }
 
@@ -199,3 +212,46 @@ html, body {
   .bottom-row { flex-direction: column; align-items: center; gap: 10px; }
 }
 
+/* ===== Noise 噪點層 ===== */
+/* ===== Noise 噪點層 (第一版：優化還原) ===== */
+.noise-container {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+  /* 第一版的精髓在於極低的透明度，呈現若隱若現的質感 */
+  opacity: 0.05; 
+}
+
+.noise-container::before {
+  content: "";
+  position: absolute;
+  /* 擴大範圍以應對位移動畫 */
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  
+  /* 使用細緻的噪點 SVG */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  
+  /* 標準比例，顆粒細小且分佈均勻 */
+  background-size: 250px 250px; 
+  
+  /* 順滑的跳動動畫 */
+  animation: noiseAnimation 0.2s infinite;
+}
+
+@keyframes noiseAnimation {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  20% { transform: translate(1%, 1%); }
+  30% { transform: translate(-2%, 0); }
+  40% { transform: translate(1%, -2%); }
+  50% { transform: translate(-1%, 1%); }
+  60% { transform: translate(-2%, -1%); }
+  70% { transform: translate(2%, 1%); }
+  80% { transform: translate(1%, -1%); }
+  90% { transform: translate(-1%, 2%); }
+  100% { transform: translate(0, 0); }
+}

@@ -180,7 +180,7 @@ h1 {
 /* 階梯時間軸保持不變 */
 .info-sequence .step-1 { animation-delay: 8s; }
 .info-sequence .step-2 { animation-delay: 8s; }
-.info-sequence .step-3 { animation-delay: 9s; /* 最後才浮現 Email */
+.info-sequence .step-3 { animation-delay: 9s; /* 最後才浮現 Email 未使用 */
   margin-top: 40px;
   font-weight: 600;
   letter-spacing: 0.1em;
