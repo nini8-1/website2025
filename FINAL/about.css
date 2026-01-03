@@ -1,3 +1,9 @@
+/* 字體設定 */
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,42 +13,38 @@
 html, body {
   height: 100%;
   overflow: hidden;
-  background: #ffffff;
-  font-family: Arial, sans-serif;
-
-  /* 全站文字不可選取 */
+  background: #000000; /* 背景全黑 */
+  font-family: 'NotoSansJP', Arial, sans-serif;
   user-select: none;
   -webkit-user-select: none;
 }
 
-/* ===== 3D 背景（最底層，唯一吃事件） ===== */
-.lanyard-background {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
+/* ===== 動畫定義 ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.lanyard-background iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  pointer-events: auto;
-}
+.fade-in { animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.delay-1 { animation-delay: 0.3s; opacity: 0; }
+.delay-2 { animation-delay: 0.5s; opacity: 0; }
+.delay-3 { animation-delay: 0.8s; opacity: 0; }
 
-/* ===== 導覽列（可點） ===== */
+/* ===== 導覽列 (依要求版型修正) ===== */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding: 15px 30px;
+  padding: 15px 30px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6); /* 改為深色半透明 */
+  backdrop-filter: blur(8px);
   z-index: 1000;
   pointer-events: auto;
+  border-bottom: 1px solid rgba(135, 161, 240, 0.1);
 }
 
 .nav-links {
@@ -51,59 +53,132 @@ html, body {
 }
 
 .nav-links a {
+  color: #87a1f0; /* Logo 藍紫色 */
   text-decoration: none;
-  color: rgb(74,87,231);
-  font-size: 14px;
+  font-size: 12px; /* 依要求設為 12px */
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
 }
 
 .menu-btn {
   display: none;
-  font-size: 26px;
+  font-size: 25px;
+  color: #87a1f0;
   cursor: pointer;
 }
 
-/* ===== 文字疊加層（完全穿透） ===== */
+/* ===== 全螢幕選單 (依要求版型修正) ===== */
+.fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  background: #000000; /* 改為黑色背景 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+}
+
+.fullscreen-nav.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.fullscreen-links a {
+  color: #87a1f0;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: #87a1f0;
+  cursor: pointer;
+}
+
+/* ===== 3D 背景與疊加層 ===== */
+/* 確保 3D 背景容器完全滿版且無邊 */
+.lanyard-background {
+  position: fixed;
+  inset: 0;           /* 等同於 top:0, left:0, right:0, bottom:0 */
+  z-index: 1;
+  background: #000000; /* 確保底色與網頁背景一致，消除邊界感 */
+  overflow: hidden;    /* 雙重保險，防止出現捲軸 */
+}
+
+.lanyard-background iframe {
+  width: 100vw;       /* 使用視窗寬度單位 */
+  height: 100vh;      /* 使用視窗高度單位 */
+  border: none;       /* 移除預設邊框 */
+  outline: none;      /* 移除點擊時可能出現的藍色框 */
+  display: block;     /* 消除底部的微小間隙 */
+  
+  /* 如果你想讓 3D 稍微大一點點蓋過視窗邊緣，可以加上這行 */
+  /* transform: scale(1.01); */
+}
+
 .content-overlay {
-  position: relative;
+  position: fixed;
+  inset: 0;
   z-index: 10;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   pointer-events: none;
+  padding: 120px 60px 40px;
 }
 
-/* 中央左右文字 */
 .center-row {
   flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
 }
 
 .side-content {
-  width: 260px;
-  color: rgb(74,87,231);
+  width: 280px;
+  color: #87a1f0;
 }
 
-.side-content h2 {
-  font-size: 2.4rem;
+/* 霓虹效果：僅用於 DESIGN & MOTION */
+.neon-text {
+  font-size: 2.8rem;
   font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  text-shadow: 
+    0 0 8px rgba(135, 161, 240, 0.6),
+    0 0 20px rgba(135, 161, 240, 0.2);
 }
 
 .side-content p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   opacity: 0.7;
+  color: #cdd7f7;
 }
 
-/* 底部 */
+/* 底部佈局 */
 .bottom-row {
   display: flex;
   justify-content: space-between;
-  padding: 0 60px 40px;
+  color: #87a1f0;
   font-size: 12px;
-  color: rgb(74,87,231);
   letter-spacing: 1px;
 }
 
@@ -115,21 +190,12 @@ html, body {
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .menu-btn { display: block; }
-
   .center-row {
     flex-direction: column;
-    gap: 80px;
-    padding-top: 120px;
+    justify-content: space-around;
+    padding: 100px 0;
   }
-
-  .side-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .bottom-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+  .side-content { width: 100%; text-align: center; }
+  .bottom-row { flex-direction: column; align-items: center; gap: 10px; }
 }
+
