@@ -12,7 +12,7 @@ let galleryData = [];
 async function initGallery() {
     try {
         // 嘗試讀取 JSON 檔案
-        const response = await fetch('./data.json');
+        const response = await fetch('./ser02data.json');
         if (!response.ok) throw new Error("找不到 JSON 檔案");
         
         galleryData = await response.json();
