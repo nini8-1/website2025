@@ -78,7 +78,18 @@ gallery.addEventListener('click', (e) => {
 
         expandedImg.src = box.querySelector('img').src;
         infoNumber.innerText = item.id;
-        if (infoDesc) infoDesc.innerText = item.desc; // 更新註解文字
+        
+        // 更新註解文字
+        if (infoDesc) infoDesc.innerText = item.desc; 
+
+        // --- 連結處理邏輯 ---
+        const linkBtn = document.getElementById('info-link');
+        if (item.link && item.link !== "") {
+            linkBtn.href = item.link;      // 填入連結
+            linkBtn.style.display = "inline-block"; // 顯示按鈕
+        } else {
+            linkBtn.style.display = "none"; // 若無連結則隱藏
+        }
         
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';

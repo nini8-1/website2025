@@ -2,22 +2,25 @@
   {
     "id": "01",
     "fileName": "work01.jpg",
-    "desc": "這是關於品牌設計的第一個專案，強調簡約與幾何美感。"
+    "desc": "Filpbook little rascal",
+    "link": "https://youtu.be/uyRHIICBLEg"
   },
   {
     "id": "02",
     "fileName": "work02.jpg",
-    "desc": "Procreate 繪製的插畫作品，探索色彩與光影的變化。"
+    "desc": "Story 版型設計",
+    "link": ""
   },
   {
     "id": "03",
     "fileName": "work03.jpg",
-    "desc": "介面設計提案：專注於使用者體驗與流暢的交互邏輯。"
+    "desc": "",
+    "link": "https://youtu.be/uyRHIICBLEg"
   },
   {
     "id": "04",
     "fileName": "work04.jpg",
-    "desc": "這是關於品牌設計的第四個專案，強調簡約與幾何美感。"
+    "desc": "filpbook 動畫設計專案 rul:https://youtu.be/uyRHIICBLEg。"
   },
  {
     "id": "05",
@@ -86,7 +89,7 @@
   },
   {
     "id": "18",
-    "fileName": "work18 .jpg",
+    "fileName": "work18.jpg",
     "desc": "這是關於品牌設計的第十八個專案，強調簡約與幾何美感。"
   },
   {

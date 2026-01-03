@@ -191,7 +191,29 @@ body {
 }
 
 #info-number { font-family: 'Outfit', sans-serif; font-size: 24px; margin-bottom: 5px; }
+
+
+
 #info-desc { font-size: 14px; opacity: 0.6; }
+
+#info-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--brand-blue);
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--brand-blue);
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+}
+
+#info-link:hover {
+    opacity: 0.6;
+}
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(15px); }
@@ -205,3 +227,4 @@ body {
     .nav-links { display: none; }
     .gallery-container { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
 }
+
