@@ -30,7 +30,7 @@ body {
     position: fixed;
     top: 0; left: 0;
     
-    /* 1. 背景改為帶點透明的純白，讓後方圖片流動時更有層次 */
+    /* 1. 背景 */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -38,7 +38,7 @@ body {
     /* 2. 增加一條細線 (Border) */
     /*border-bottom: 1px solid rgba(0, 0, 0, 0.08); */
     
-    /* 3. 或者增加淡淡的陰影 (Shadow) - 若不想要線條可以只用這個 */
+    /* 3. 陰影 (Shadow)  */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
