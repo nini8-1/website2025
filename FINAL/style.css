@@ -48,7 +48,7 @@
 
 /* 桌機選單 */
 .nav-links a {
-  color: rgb(214, 255, 63);
+  color: rgb(74, 87, 231);
   text-decoration: none;
   font-size: 12px;
 }
@@ -56,7 +56,7 @@
 /* 手機漢堡按鈕 */
 .menu-btn {
   font-size: 25px;
-  color: rgb(214, 255, 63);
+  color: rgb(74, 87, 231);
   cursor: pointer;
   display: none;
 }
@@ -70,7 +70,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: black;
+  background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,7 +93,7 @@
 }
 /* 手機文字 decoration底線 */
 .fullscreen-links a {
-  color: rgb(214, 255, 63);
+  color: rgb(74, 87, 231);
   font-size: 40px;
   text-decoration: none;
   font-family: 'KASTROO';
@@ -104,7 +104,7 @@
   top: 20px;
   right: 40px;
   font-size: 40px;
-  color: rgb(214, 255, 63);
+  color: rgb(74, 87, 231);
   cursor: pointer;
 }
 
@@ -113,8 +113,8 @@
 ======================= */
 body {
   margin: 0;
-  background: black;
-  color: rgb(214, 255, 63);
+  background-color: #f7f7f7;
+  color: rgb(74, 87, 231);
   font-family: 'Outfit', sans-serif;
 }
 

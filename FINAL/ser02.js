@@ -1,3 +1,16 @@
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const fullscreenNav = document.getElementById("fullscreenNav");
+
+menuBtn.addEventListener("click", () => {
+  fullscreenNav.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  fullscreenNav.classList.remove("active");
+});
+
+
 // 設定圖片資料夾路徑
 const imageFolderPath = "./ser02images/"; 
 const gallery = document.getElementById('gallery');
@@ -106,3 +119,4 @@ overlay.addEventListener('click', (e) => {
 
 // 啟動程式
 initGallery();
+
