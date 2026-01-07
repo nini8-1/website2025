@@ -110,29 +110,58 @@ body {
   padding: 0;
 }
 .contact-page-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100svh; /* 手機安全 */
   width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  padding: clamp(24px, 5vw, 80px);
 }
+
+
 .contact-page-logo-outer {
-  width: 66%;
-  height: 66%;
-  background: url(images/contact/contact003.svg) no-repeat center center;
-  background-size: contain;
+  position: relative;
+
+  width: clamp(280px, 60vw, 900px);
+  aspect-ratio: 16 / 9;
+
   border-radius: 3rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  
+  transform-style: preserve-3d;
 }
 
-.contact-pagesvg-logo {
-  display: block;
-  width: 66%;
-  max-height: 66%;
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+
+  background: url(images/contact/bg001.svg) no-repeat center;
+  background-size: contain;
+
+  transform: translateZ(-40px) scale(1.06);
 }
- 
+.parallax-word {
+  width: clamp(65%, 70vw, 900px);
+  max-width: none;
+}
+
+@media (max-width: 768px) {
+  .parallax-word {
+    width: 85%;
+  }
+}
+
+
+.parallax-word {
+  transition: filter 0.4s ease;
+}
+
+.contact-page-logo-outer:hover .parallax-word {
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+}
 
 
