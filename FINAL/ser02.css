@@ -87,6 +87,12 @@ body {
     pointer-events: auto;
 }
 
+.fullscreen-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .close-btn {
     position: absolute;
     top: 30px;
@@ -104,6 +110,8 @@ body {
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
     margin-bottom: 20px;
+    text-decoration: none;
+    font-family: 'KASTROO';
 }
 
 /* ===== 佈局 (固定一行六個) ===== */
