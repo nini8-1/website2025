@@ -3,6 +3,10 @@
     font-family: 'NotoSansJP';
     src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'KASTROO';
+  src: url('./fonts/KASTROO.ttf') format('truetype');   
+}
 
 :root {
     --brand-blue: #87a1f0;
@@ -104,15 +108,12 @@ body {
 }
 
 .fullscreen-links a {
-    color: var(--brand-blue);
-    font-size: 32px;
-    text-decoration: none;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-decoration: none;
-    font-family: 'KASTROO';
+  color: rgb(74, 87, 231);
+  font-size: 40px;
+  text-decoration: none;
+  font-family: 'KASTROO';
 }
+
 
 /* ===== 佈局 (固定一行六個) ===== */
 .gallery-container {
