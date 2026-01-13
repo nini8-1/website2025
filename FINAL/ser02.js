@@ -25,7 +25,7 @@ let galleryData = [];
 async function initGallery() {
     try {
         // 嘗試讀取 JSON 檔案
-        const response = await fetch('./ser02data.json');
+        const response = await fetch('/ser02data.json');
         if (!response.ok) throw new Error("找不到 JSON 檔案");
         
         galleryData = await response.json();
@@ -50,19 +50,30 @@ async function initGallery() {
 
 // 2. 渲染圖庫到畫面上
 function renderGallery() {
-    gallery.innerHTML = ""; // 清空
+    gallery.innerHTML = ""; 
     galleryData.forEach((item, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
         
-        // 判斷圖片來源 (如果是測試模式的網址就直接用，如果是本地檔名就加上路徑)
-        const imgSrc = item.fileName.startsWith('http') ? item.fileName : `${imageFolderPath}${item.fileName}`;
-        
+        // --- 圖片路徑全相容判定 ---
+        let imgSrc;
+        if (item.imagePath) { 
+            imgSrc = item.imagePath; // 修正後的格式
+        } else if (item.image) { 
+            imgSrc = item.image;     // 你剛剛測試上傳的那幾筆格式
+        } else { 
+            imgSrc = `${imageFolderPath}${item.fileName}`; // 原始格式
+        }
+
+        // --- 文字描述全相容判定 ---
+        const displayDesc = item.desc || item.title || "無描述";
+        const displayId = item.id || "??";
+
         galleryItem.innerHTML = `
             <div class="image-box" data-index="${index}">
-                <img src="${imgSrc}" alt="Work ${item.id}" loading="lazy">
+                <img src="${imgSrc}" alt="${displayDesc}" loading="lazy">
             </div>
-            <div class="caption">${item.id}</div>
+            <div class="caption">${displayId}</div>
         `;
         gallery.appendChild(galleryItem);
     });

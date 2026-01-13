@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>作品集管理後台</title>
+    <style>
+        body { font-family: sans-serif; padding: 50px; line-height: 2; }
+        .upload-box { border: 2px dashed #ccc; padding: 20px; width: 300px; }
+    </style>
+</head>
+<body>
+    <h2>上傳新作品</h2>
+    <div class="upload-box">
+        <label>作品名稱：</label><br>
+        <input type="text" id="pTitle" placeholder="例如：2025 插畫作品"><br><br>
+        
+        <label>上傳圖片：</label><br>
+        <input type="file" id="pFile" accept="image/*"><br><br>
+        
+        <button onclick="uploadWork()">確認發佈到 ser02</button>
+    </div>
+
+    <script>
+        async function uploadWork() {
+            const title = document.getElementById('pTitle').value;
+            const fileInput = document.getElementById('pFile');
+
+            if(!title || !fileInput.files[0]) return alert("請填寫名稱並選擇圖片");
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('projectImage', fileInput.files[0]);
+
+            const response = await fetch('/upload-project', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            alert(result.message);
+            // 成功後可以跳轉回原本的作品頁面看成果
+            window.location.href = "ser02.html"; 
+        }
+    </script>
+</body>
+</html>

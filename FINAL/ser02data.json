@@ -23,7 +23,7 @@
     "desc": "",
     "link": "https://youtu.be/uyRHIICBLEg"
   },
- {
+  {
     "id": "05",
     "fileName": "work05.jpg",
     "desc": "",
@@ -120,93 +120,87 @@
     "fileName": "work22.jpg",
     "desc": "角色介紹"
   },
-  {    
+  {
     "id": "23",
     "fileName": "work23.jpg",
     "desc": "角色介紹"
-  
   },
-  {    
+  {
     "id": "24",
     "fileName": "work24.jpg",
     "desc": "",
     "link": "https://www.canva.com/design/DAGHiM6FEyw/RWo7eV2K6pRpHGr4y5TwtA/watch?utm_content=DAGHiM6FEyw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7508b46ab9"
   },
-  {    
+  {
     "id": "25",
     "fileName": "work25.jpg",
     "desc": "MY JINJI"
-  
   },
-  {    
+  {
     "id": "26",
     "fileName": "work26.jpg",
     "desc": "BURGUNDY"
-  
   },
-  {    
+  {
     "id": "27",
     "fileName": "work27.jpg",
     "desc": "NEW DRUG"
-  
   },
-  {    
+  {
     "id": "28",
     "fileName": "work28.png",
     "desc": "12 2025-calendar"
   },
-  {    
+  {
     "id": "29",
     "fileName": "work29.png",
     "desc": "Sticker"
-  
   },
-  {    
+  {
     "id": "30",
     "fileName": "work30.png",
     "desc": "POST"
-  
   },
-  {    
+  {
     "id": "31",
     "fileName": "work31.png",
     "desc": "CD CARD"
-  
   },
-  {    
+  {
     "id": "32",
     "fileName": "work32.png",
     "desc": "POST"
-  
   },
-  {    
+  {
     "id": "33",
     "fileName": "work33.jpg",
     "desc": "Derivative work"
-  
   },
-  {    
+  {
     "id": "34",
     "fileName": "work34.jpg",
     "desc": "Derivative work"
-  
   },
-  {    
+  {
     "id": "35",
     "fileName": "work35.jpg",
     "desc": "Derivative work"
-  
   },
-  {    
+  {
     "id": "36",
     "fileName": "work36.jpg",
     "desc": "portrait"
-  
   },
-  {    
+  {
     "id": "37",
     "fileName": "work37.jpg",
     "desc": "portrait"
-  
+  },
+  {
+    "id": "38",
+    "fileName": "1768348552451-s1411222024_midterm.00_00_39_21.Still001.png",
+    "imagePath": "ser02images/1768348552451-s1411222024_midterm.00_00_39_21.Still001.png",
+    "desc": "bot",
+    "link": ""
   }
 ]
