@@ -55,7 +55,8 @@ app.post('/upload-project', upload.single('projectImage'), async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('🚀 伺服器啟動完成：http://localhost:3000');
-    console.log('🔗 點此測試 API：http://localhost:3000/get-projects');
+const PORT = process.env.PORT || 3000; 
+
+app.listen(PORT, () => {
+    console.log(`🚀 伺服器啟動完成，目前端口： ${PORT}`);
 });
